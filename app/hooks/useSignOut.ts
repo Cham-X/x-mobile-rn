@@ -4,6 +4,7 @@ import { Alert } from "react-native";
 const useSignOut = () => {
     const { signOut } = useClerk()
 
+
     const handleSignOut = () => {
         Alert.alert("LogOut", "Are you sure you want to logout?", [
             { text: 'Cancel', style: 'cancel' },
