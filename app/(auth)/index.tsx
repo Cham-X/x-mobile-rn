@@ -1,5 +1,5 @@
-import { ActivityIndicator, Image, Text, TouchableOpacity, View } from "react-native";
-import { useSocialAuth } from "../hooks/useSocialAuth";
+import { ActivityIndicator, Image, Text, TouchableOpacity, View } from 'react-native'
+import useSocialAuth from '../hooks/useSocialAuth'
 
 export default function Index() {
   const { isLoading, handleSocialAuth } = useSocialAuth()
@@ -7,7 +7,6 @@ export default function Index() {
     <View className="flex-1 bg-white">
       <View className="flex-1 px-8 justify-between">
         <View className="flex-1 justify-center">
-          
           <View className="items-center">
             <Image
               source={require('../../assets/images/auth2.png')}
@@ -17,7 +16,6 @@ export default function Index() {
           </View>
 
           <View className="flex-col gap-2">
-
             <TouchableOpacity
               className="flex-row items-center justify-center bg-white border border-gray-300 rounded-full py-3 px-6"
               onPress={() => handleSocialAuth('oauth_google')}
@@ -27,22 +25,21 @@ export default function Index() {
                 shadowOffset: { width: 0, height: 1 },
                 shadowOpacity: 0.1,
                 shadowRadius: 2,
-                elevation:2,
+                elevation: 2,
               }}
             >
-
-              {isLoading ?
-                <ActivityIndicator size='small' color='#4385f4' />
-                  :                             <View className="flex-row items-center justify-center">
-
-                    <Image
-              source={require('../../assets/images/google.png')}
-              className="size-10 mr-3"
-              resizeMode="contain"
-              />
-                  <Text className="font-base font-medium">Continue With Google</Text></View>
-              }
-             
+              {isLoading ? (
+                <ActivityIndicator size="small" color="#4385f4" />
+              ) : (
+                <View className="flex-row items-center justify-center">
+                  <Image
+                    source={require('../../assets/images/google.png')}
+                    className="size-10 mr-3"
+                    resizeMode="contain"
+                  />
+                  <Text className="font-base font-medium">Continue With Google</Text>
+                </View>
+              )}
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -54,12 +51,12 @@ export default function Index() {
                 shadowOffset: { width: 0, height: 1 },
                 shadowOpacity: 0.1,
                 shadowRadius: 2,
-                elevation:2,
+                elevation: 2,
               }}
             >
-              {isLoading ?
-                <ActivityIndicator size='small' color='#000000' />
-                :
+              {isLoading ? (
+                <ActivityIndicator size="small" color="#000000" />
+              ) : (
                 <View className="flex-row items-center justify-center">
                   <Image
                     source={require('../../assets/images/apple.png')}
@@ -68,15 +65,15 @@ export default function Index() {
                   />
                   <Text className="font-base font-medium">Continue With Apple</Text>
                 </View>
-              }
+              )}
             </TouchableOpacity>
           </View>
 
           <Text className="text-center text-gray-500 text-xs leading-4 mt-6 px-2">
-By signing up, you agree 
+            By signing up, you agree
           </Text>
-      </View>
+        </View>
       </View>
     </View>
-  );
+  )
 }
